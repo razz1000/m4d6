@@ -1,8 +1,7 @@
-
 import "./App.css";
 import NavBar from "./component/NavBar";
 import SearchComponent from "./component/SearchComponent";
-import MoviesSection from "./Components/MoviesSection";
+import MoviesSection from "./components/MoviesSection";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -11,10 +10,9 @@ function App() {
     <div>
       <NavBar />
       <SearchComponent />
-    <MoviesSection />
-
+      <MoviesSection />
     </div>
-  )
+  );
 }
 
 export default App;
