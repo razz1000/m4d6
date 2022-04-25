@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Thumbnail from "./Thumbnail";
+
 const MovieRow = ({ sectionsMovies }) => {
-  console.log(sectionsMovies);
   return (
-    <div className="section">
-      <Thumbnail sectionsMovies={sectionsMovies} />
-      <Thumbnail sectionsMovies={sectionsMovies} />
-      {console.log(sectionsMovies)}
+    <div className="section horizontal-scroll">
+      {sectionsMovies &&
+        sectionsMovies.length > 0 &&
+        sectionsMovies.map((movie) => <Thumbnail singleMovie={movie} />)}
     </div>
   );
 };

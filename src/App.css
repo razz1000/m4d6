@@ -7,7 +7,6 @@
   pointer-events: none;
 }
 .section {
-  border: 3px solid #c3c3c3;
   display: flex;
   flex-wrap: wrap;
 }
@@ -22,20 +21,35 @@
   background-color: aqua;
 }
 .section-name {
+  display: flex;
   position: relative;
-  margin: 2rem;
-  border: 5px solid salmon;
+  align-items: flex-start;
 }
 .movie-card-image {
   position: relative;
   object-fit: cover;
   width: 16rem;
-  aspect-ratio: 16/9;
-  border: 3px solid black;
+  height: 9rem;
 }
 
 .card {
-  height: 16rem;
+  height: 9rem;
   width: 16rem;
+  /* aspect-ratio: 16/9; */
   margin-left: 1rem;
+  background-color: rgb(121, 121, 121);
 }
+.card:hover {
+  height: 17rem;
+  width: 16rem;
+  /* width: 10; */
+  transform: scale(1.3);
+}
+
+.card-details {
+  display: none;
+  justify-content: space-between;
+}
+/* .horizontal-scroll {
+  scroll-direction: horizontal;
+} */

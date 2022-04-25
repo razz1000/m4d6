@@ -27,11 +27,27 @@ class MoviesSection extends Component {
       <div className="">
         <SectionName sectionName={"Popular on Netflix"} />
         <div>
-          <MovieRow arrayMovies={this.state.sectionsMovies} />
+          {this.state.sectionsMovies &&
+            this.state.sectionsMovies.length > 0 && (
+              <MovieRow sectionsMovies={this.state.sectionsMovies} />
+            )}
         </div>
-        <SectionName sectionName={"Tranding Now"} />
+
         <MovieRow />
         <SectionName sectionName={"Violent Suspense TV Programmes"} />
+        <div>
+          {this.state.sectionsMovies &&
+            this.state.sectionsMovies.length > 0 && (
+              <MovieRow sectionsMovies={this.state.sectionsMovies} />
+            )}
+        </div>
+        <SectionName sectionName={"Violent Suspense TV Programmes"} />
+        <div>
+          {this.state.sectionsMovies &&
+            this.state.sectionsMovies.length > 0 && (
+              <MovieRow sectionsMovies={this.state.sectionsMovies} />
+            )}
+        </div>
         <MovieRow />
       </div>
     );
