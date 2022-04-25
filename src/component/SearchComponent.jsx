@@ -7,27 +7,26 @@ import {Form, Button} from "react-bootstrap"
 class SearchComponent extends Component {
 
     
-    state = {
-        searchQuery: ""
-    }
-
-    onChangeFunction = async (event) => {
-      if (event.target.value.lenght > 5) {   
-        this.setState({
-        ...this.state,
-        searchQuery:event.target.value})  
-        event.preventDefault()
-        const response = await fetch("http://www.omdbapi.com/?apikey=593bbdc9&s=" + this.state.searchQuery)
+ 
+/* 
+    onChangeFunction = async () => {
+      
+      
+        const response = await fetch("http://www.omdbapi.com/?apikey=593bbdc9&s=" + this.props.searchQuery)
        
         const parsedBody = await response.json();
+        if(parsedBody.Response) {`
+
+        `}
         console.log(parsedBody)
-        console.log(event.target.value)
-        this.setState({searchQuery: event.target.value})
-    } else (console.log(event.target.value.length))
+      
+     
+    
     }
 
  componentDidMount=()=>{
- }
+
+ } */
 
 
     render () {
@@ -38,7 +37,7 @@ class SearchComponent extends Component {
                             <Form.Label>Search</Form.Label>
                             <Form.Control type="text" placeholder="Search here"
                             
-                            onChange={this.onChangeFunction} />
+                            onChange={(e)=> this.props.setSearchQuery({searchQuery: e.target.value})} />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
