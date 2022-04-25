@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import MovieCard from "./MovieCard";
+import React from "react";
 
 const SectionName = ({ sectionName }) => {
   return (

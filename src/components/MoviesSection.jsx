@@ -1,22 +1,41 @@
 import React, { Component } from "react";
 import SectionName from "./SectionName";
-import MovieCard from "./MovieCard";
-import { Col, Container, Row } from "react-bootstrap";
+import MovieRow from "./MovieRow";
 
-const MoviesSection = () => {
-  return (
-    <div>
-      <SectionName sectionName={"Popular on Netflix"} />
-      <div>
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+class MoviesSection extends Component {
+  state = {
+    sectionsMovies: [],
+  };
+
+  componentDidMount = async () => {
+    console.log("Comp did mount.");
+    try {
+      let url = "http://www.omdbapi.com/?apikey=f2be261d&s=king&type=movie";
+
+      let response = await fetch(url);
+      response = await response.json();
+      this.setState({
+        ...this.state,
+        sectionsMovies: response.Search,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  render() {
+    return (
+      <div className="">
+        <SectionName sectionName={"Popular on Netflix"} />
+        <div>
+          <MovieRow arrayMovies={this.state.sectionsMovies} />
+        </div>
+        <SectionName sectionName={"Tranding Now"} />
+        <MovieRow />
+        <SectionName sectionName={"Violent Suspense TV Programmes"} />
+        <MovieRow />
       </div>
-
-      <SectionName sectionName={"Tranding Now"} />
-      <SectionName sectionName={"Violent Suspense TV Programmes"} />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default MoviesSection;
